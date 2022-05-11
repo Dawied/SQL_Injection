@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+error_reporting(E_ALL);
 $host = 'localhost';
 $dbname = 'veiligprogrammeren';
 $username = 'david';
@@ -16,7 +16,8 @@ $password = $_POST["password"];
 
 $sql = "SELECT * FROM users WHERE name = '$username' AND password = '$password'";
 
-$result = $db->query($sql);
+$result = mysqli_query($db, $sql) or die(mysqli_error($db));
+
 $rows = $result->fetch_all(MYSQLI_ASSOC);
 
 if (count($rows) == 1) {
