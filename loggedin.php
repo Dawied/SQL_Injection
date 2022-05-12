@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 <head>
     <title>Loggedin</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <?php
